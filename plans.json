@@ -1,0 +1,90 @@
+[
+  {
+    "title": "Trip to Rio de Janeiro",
+    "description": "We're going to Rio, enjoy Copacabana Beach with cocktails and sunglasses!",
+    "startDate": "2024-08-10T12:00:00.000Z",
+    "endDate": "2024-08-20T12:00:00.000Z",
+    "location": "Rio de Janeiro, Brazil",
+    "participants": "Jake Peralta, Amy Santiago"
+  },
+  {
+    "title": "Adventure in Amazon",
+    "description": "Let's explore the Amazon rainforest and discover its unique wildlife!",
+    "startDate": "2024-09-15T08:00:00.000Z",
+    "endDate": "2024-09-25T08:00:00.000Z",
+    "location": "Amazon Rainforest, Brazil",
+    "participants": "Rosa Diaz, Terry Jeffords"
+  },
+  {
+    "title": "São Paulo Business Trip",
+    "description": "We shall attend the international business conference and network with industry leaders.",
+    "startDate": "2024-07-20T09:00:00.000Z",
+    "endDate": "2024-07-22T17:00:00.000Z",
+    "location": "São Paulo, Brazil",
+    "participants": "Raymond Holt, Kevin Cozner"
+  },
+  {
+    "title": "Carnaval Experience",
+    "description": "Woo! Carnaval!",
+    "startDate": "2025-02-28T14:00:00.000Z",
+    "endDate": "2025-03-05T23:00:00.000Z",
+    "location": "Rio de Janeiro, Brazil",
+    "participants": "Gina Linetti, Charles Boyle"
+  },
+  {
+    "title": "Historical Tour of Salvador",
+    "description": "Immerse yourself in the rich history and culture of Salvador.",
+    "startDate": "2024-10-05T10:00:00.000Z",
+    "endDate": "2024-10-12T18:00:00.000Z",
+    "location": "Salvador, Brazil",
+    "participants": "Charles Boyle"
+  },
+  {
+    "title": "Beach Retreat in Florianópolis",
+    "description": "Relax on the beautiful beaches of Florianópolis and enjoy water sports.",
+    "startDate": "2024-11-10T11:00:00.000Z",
+    "endDate": "2024-11-17T20:00:00.000Z",
+    "location": "Florianópolis, Brazil",
+    "participants": "Doug Judy"
+  },
+  {
+    "title": "Cultural Exploration in Brasília",
+    "description": "Visit architectural landmarks and museums in Brazil's capital.",
+    "startDate": "2024-12-01T13:00:00.000Z",
+    "endDate": "2024-12-04T19:00:00.000Z",
+    "location": "Brasília, Brazil",
+    "participants": "Norm Scully, Michael Hitchcock"
+  },
+  {
+    "title": "Surfing Adventure in Itacaré",
+    "description": "Catch the waves and surf in the beautiful beaches of Itacaré.",
+    "startDate": "2024-08-25T07:00:00.000Z",
+    "endDate": "2024-08-30T17:00:00.000Z",
+    "location": "Itacaré, Brazil",
+    "participants": "Bill Hader, Seth Meyers"
+  },
+  {
+    "title": "Wildlife Photography in Pantanal",
+    "description": "Embark on a photography tour to capture the stunning wildlife of Pantanal.",
+    "startDate": "2024-05-15T06:00:00.000Z",
+    "endDate": "2024-05-20T16:00:00.000Z",
+    "location": "Pantanal, Brazil",
+    "participants": "Amy Santiago, Rosa Diaz"
+  },
+  {
+    "title": "Gastronomy Tour in Minas Gerais",
+    "description": "Savor the traditional flavors and dishes of Minas Gerais.",
+    "startDate": "2024-06-12T12:00:00.000Z",
+    "endDate": "2024-06-19T21:00:00.000Z",
+    "location": "Minas Gerais, Brazil",
+    "participants": "Norm Scully, Michael Hitchcock"
+  },
+  {
+    "title": "Relaxing Getaway to Búzios",
+    "description": "Unwind in the serene town of Búzios and enjoy its charming boutiques and cafes.",
+    "startDate": "2024-04-20T15:00:00.000Z",
+    "endDate": "2024-04-27T22:00:00.000Z",
+    "location": "Búzios, Brazil",
+    "participants": "Terry Jeffords"
+  }
+]
