@@ -8,24 +8,20 @@ export default function FormFieldInput({
   name,
   register,
   error,
-  valueAsNumber,
+  valueAsDate,
   label,
   required = false,
 }: FormFieldProps) {
-  const variants = {
-    base: "w-full rounded border outline-none outline-0 border-gray-50 p-2 text-xs transition-all duration-300 focus-visible:border-solid focus-visible:border-red-500 disabled:bg-gray-200 disabled:text-gray-900 disabled:opacity-80 mb-4",
-  } as const;
-
   return (
-    <>
+    <div className="mb-4">
       <Label text={label} required={required} htmlFor={name} />
       <input
         type={type}
         placeholder={placeholder}
-        className={variants.base}
-        {...register(name, { valueAsNumber })}
+        className="w-full rounded border border-gray-50 p-2 text-xs outline-none outline-0 transition-all duration-300 focus-visible:border-solid focus-visible:border-emerald-500 disabled:bg-gray-200 disabled:text-gray-900 disabled:opacity-80"
+        {...register(name, { valueAsDate })}
       />
       {error && error.message && <ErrorMessage message={error.message} />}
-    </>
+    </div>
   );
 }

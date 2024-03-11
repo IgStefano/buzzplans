@@ -13,11 +13,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="https://api.iconify.design/carbon/plan.svg" />
       </Head>
       <main className="flex h-full min-h-screen w-screen max-w-full justify-center bg-neutral-300">
-        <div className="h-screen w-screen max-w-lg overflow-y-auto bg-neutral-100">
+        <div className="h-screen w-screen max-w-5xl overflow-y-auto bg-neutral-100">
           <div
             className={classNames(
               "flex w-full flex-col items-center justify-center gap-4 px-6 pt-8",
-              belleza.className
+              belleza.className,
             )}
           >
             <Component {...pageProps} />
