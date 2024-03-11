@@ -16,12 +16,14 @@ export type FormFieldProps = {
   name: ValidFieldNames;
   register: UseFormRegister<PlanData>;
   error: FieldError | undefined;
-  valueAsNumber?: boolean;
+  valueAsDate?: boolean;
   label: string;
   required?: boolean;
 };
 
 export type ValidFieldNames = keyof PlanData;
+
+// These are the restraints for the form. It is also what will inform other usages of this data structure (such as validating it in the API).
 
 export const PlanSchema: ZodType<PlanData> = z
   .object({
@@ -37,15 +39,23 @@ export const PlanSchema: ZodType<PlanData> = z
       })
       .trim(),
     participants: z
-      .string()
-      .min(3, {
-        message: "The participants' names must be longer than 3 characters",
-      })
-      .max(300, {
-        message: "The participants' names cannot be longer than 300 characters",
-      })
-      .trim()
-      .optional(),
+      .union([
+        z.string().length(0, {
+          message: "The participants' names must be longer than 3 characters",
+        }),
+        z
+          .string()
+          .min(3, {
+            message: "The participants' names must be longer than 3 characters",
+          })
+          .max(300, {
+            message:
+              "The participants' names cannot be longer than 300 characters",
+          })
+          .trim(),
+      ])
+      .optional()
+      .transform((data) => (data === "" ? undefined : data)),
     location: z
       .string()
       .min(2, {
@@ -55,29 +65,37 @@ export const PlanSchema: ZodType<PlanData> = z
         message: "The location's name cannot be longer than 128 characters",
       })
       .trim(),
-    startDate: z
+    startDate: z.coerce
       .date({
         invalid_type_error:
           "We haven't received a valid date, please try again",
       })
-      .min(new Date(), {
-        message: "The start date cannot be earlier than today.",
-      }),
-    endDate: z
-      .date({
-        invalid_type_error:
-          "We haven't received a valid date, please try again",
-      })
-      .min(new Date(), {
-        message: "The end date cannot be earlier than today.",
-      }),
+      .refine(
+        (data) =>
+          // this mouthful of a condition is making sure to "normalize" the date. Since we receive YYYY-MM-DD from the Form (without hours, minutes, seconds or miliseconds), we need to compare it to a similar new Date. It is also necessary to make sure all values are using UTC to negate timezone effects.
+          new Date(
+            data.getUTCFullYear(),
+            data.getUTCMonth(),
+            data.getUTCDate(),
+          ).getTime() >=
+          new Date(
+            new Date().getFullYear(),
+            new Date().getMonth(),
+            new Date().getDate(),
+            0,
+            0,
+            0,
+            0,
+          ).getTime(),
+        {
+          message: "The start date cannot be earlier than today.",
+        },
+      ),
+    endDate: z.coerce.date({
+      invalid_type_error: "We haven't received a valid date, please try again",
+    }),
   })
-  .superRefine((data, ctx) => {
-    if (data.endDate < data.startDate) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        path: ["endDate"],
-        message: "End date cannot be earlier than start date.",
-      });
-    }
+  .refine((data) => data.endDate.getTime() >= data.startDate.getTime(), {
+    path: ["endDate"],
+    message: "End date cannot be earlier than start date.",
   });
