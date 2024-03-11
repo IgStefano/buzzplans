@@ -1,9 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import { promises as fs } from "fs";
-import { PlanData, PlanSchema } from "@/components/form/types/plans";
-
-type PlanDataAPI = PlanData & { id: string };
+import { PlanDataAPI, PlanSchema } from "@/components/form/types/plans";
 
 export default async function handler(
   req: NextApiRequest,
