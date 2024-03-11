@@ -9,15 +9,22 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const newData: PlanData = req.body;
+  const updateData: PlanDataAPI = req.body;
 
   // Just making sure it won't crash due to reassigning
-  if (newData?.startDate && newData?.endDate) {
-    newData.startDate = new Date(newData.startDate);
-    newData.endDate = new Date(newData.endDate);
+  if (updateData?.startDate && updateData?.endDate) {
+    updateData.startDate = new Date(updateData.startDate);
+    updateData.endDate = new Date(updateData.endDate);
   }
 
-  const result = PlanSchema.safeParse(newData);
+  if (!updateData.id) {
+    res.status(400).json({
+      code: 400,
+      message: "Cannot update Plan without id",
+    });
+  }
+
+  const result = PlanSchema.safeParse(updateData);
 
   if (result.success) {
     const file = await fs.readFile(process.cwd() + "/plans.json", "utf8");
@@ -33,18 +40,18 @@ export default async function handler(
     // This will allow plans.json to be written on by Node
     fs.chown(process.cwd() + "/plans.json", uid, gid);
     const data: PlanDataAPI[] = JSON.parse(file);
-    Object.assign(newData, { id: crypto.randomUUID() });
 
-    data.push(newData as PlanDataAPI);
+    const indexToUpdate = data.findIndex((item) => item.id === updateData.id);
+    data[indexToUpdate] = updateData;
 
     await fs.writeFile(
       process.cwd() + "/plans.json",
       JSON.stringify(data, null, 4),
     );
 
-    res.status(201).json({
-      code: 201,
-      message: "Created Plan successfully.",
+    res.status(200).json({
+      code: 200,
+      message: "Updated Plan successfully.",
     });
   } else {
     res.status(400).json({
