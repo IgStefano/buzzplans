@@ -3,11 +3,13 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { promises as fs } from "fs";
 import { PlanData, PlanSchema } from "@/components/form/types/plans";
 
+type PlanDataAPI = PlanData & { id: string };
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const newData = req.body;
+  const newData: PlanData = req.body;
 
   // Just making sure it won't crash due to reassigning
   if (newData?.startDate && newData?.endDate) {
@@ -17,22 +19,23 @@ export default async function handler(
 
   const result = PlanSchema.safeParse(newData);
 
-  console.log(newData);
-
   if (result.success) {
     const file = await fs.readFile(process.cwd() + "/plans.json", "utf8");
 
-    // User ID and Group ID for node
-    // @ts-ignore
-    const uid = process.getuid();
+    // User ID and Group ID for Node
+    const uid = process.getuid && process.getuid();
+    const gid = process.getgid && process.getgid();
 
-    // @ts-ignore
-    const gid = process.getgid();
+    if (!uid || !gid) {
+      throw new Error("Internal Server Error");
+    }
 
     // This will allow plans.json to be written on by Node
     fs.chown(process.cwd() + "/plans.json", uid, gid);
-    const data: PlanData[] = JSON.parse(file);
-    data.push(newData);
+    const data: PlanDataAPI[] = JSON.parse(file);
+    Object.assign(newData, { id: crypto.randomUUID() });
+
+    data.push(newData as PlanDataAPI);
 
     await fs.writeFile(
       process.cwd() + "/plans.json",
