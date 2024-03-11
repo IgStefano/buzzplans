@@ -1,3 +1,4 @@
+import Header from "@/components/ui/header";
 import { belleza } from "@/styles/fonts";
 import "@/styles/globals.css";
 import classNames from "classnames";
@@ -14,6 +15,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <main className="flex h-full min-h-screen w-screen max-w-full justify-center bg-neutral-300">
         <div className="h-screen w-screen max-w-5xl overflow-y-auto bg-neutral-100">
+          <Header />
           <div
             className={classNames(
               "flex w-full flex-col items-center justify-center gap-4 px-6 pt-8",

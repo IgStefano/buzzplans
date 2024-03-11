@@ -23,15 +23,23 @@ export default async function handler(
   fs.chown(process.cwd() + "/plans.json", uid, gid);
   const data: PlanDataAPI[] = JSON.parse(file);
   const indexToDelete = data.findIndex((item) => item.id === deleteData.id);
-  const updatedData = data.filter((_, index) => index !== indexToDelete);
 
-  await fs.writeFile(
-    process.cwd() + "/plans.json",
-    JSON.stringify(updatedData, null, 4),
-  );
+  if (indexToDelete !== -1) {
+    const updatedData = data.filter((_, index) => index !== indexToDelete);
 
-  res.status(200).json({
-    code: 200,
-    message: "Deleted Plan successfully.",
+    await fs.writeFile(
+      process.cwd() + "/plans.json",
+      JSON.stringify(updatedData, null, 4),
+    );
+
+    res.status(200).json({
+      code: 200,
+      message: "Deleted Plan successfully.",
+    });
+  }
+
+  res.status(404).json({
+    code: 404,
+    message: "Plan not found",
   });
 }

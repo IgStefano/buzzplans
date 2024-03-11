@@ -26,14 +26,14 @@ export default function Form() {
       className="w-full px-4 sm:px-8"
     >
       <div className="flex w-full flex-col">
-        <h1
+        <h2
           className={classNames(
             "mb-4 text-center text-3xl font-bold capitalize",
             radioCanada.className,
           )}
         >
           Plan Your Holiday!
-        </h1>
+        </h2>
         <FormFieldInput
           label="Title"
           type="text"
