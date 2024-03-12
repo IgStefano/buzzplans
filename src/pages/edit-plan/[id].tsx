@@ -1,19 +1,18 @@
 import Form from "@/components/form/plans/form";
 import { PlanDataAPI } from "@/components/form/types/plans";
+import { api } from "@/services/api";
 import { GetServerSideProps } from "next";
 
 export default function NewPlan({ plan }: { plan: PlanDataAPI }) {
   return (
     <>
-      <Form />
+      <Form type="edit" data={plan} />
     </>
   );
 }
 
 export const getServerSideProps = (async (context) => {
-  const res = await fetch(
-    `http://localhost:3000/api/fetch-plan/${context.query.id}`,
-  );
+  const res = await api({ action: "fetch", id: context.query.id as string });
   const plan: PlanDataAPI = await res.json();
 
   return { props: { plan } };

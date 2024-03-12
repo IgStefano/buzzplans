@@ -1,6 +1,7 @@
 import { PlanDataAPI } from "@/components/form/types/plans";
 import Card from "@/components/listing/card";
 import Modal from "@/components/ui/modal";
+import { api } from "@/services/api";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -11,11 +12,7 @@ export default function Home({ plans }: { plans: PlanDataAPI[] }) {
   const router = useRouter();
   const finishDeletion = async () => {
     if (router.query.delete) {
-      await fetch("http://localhost:3000/api/delete-plan/", {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: router.query.delete }),
-      });
+      await api({ action: "delete", id: router.query.delete as string });
     }
   };
 
@@ -62,7 +59,7 @@ export default function Home({ plans }: { plans: PlanDataAPI[] }) {
 }
 
 export const getServerSideProps = (async () => {
-  const res = await fetch("http://localhost:3000/api/get-plans/");
+  const res = await api({ action: "get" });
   const plans: PlanDataAPI[] = await res.json();
 
   return { props: { plans } };
