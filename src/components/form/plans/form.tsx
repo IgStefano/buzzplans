@@ -1,39 +1,62 @@
 import { useForm } from "react-hook-form";
 import FormFieldInput from "./formFieldInput";
-import { PlanData, PlanSchema } from "../types/plans";
+import {
+  PlanAPISchema,
+  PlanData,
+  PlanDataAPI,
+  PlanSchema,
+} from "../types/plans";
 import classNames from "classnames";
-import { radioCanada } from "@/styles/fonts";
+import { caveat } from "@/styles/fonts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormFieldTextarea from "./formFieldTextarea";
+import { api } from "@/services/api";
 
-export default function Form() {
+interface FormCreateProps {
+  type: "create";
+}
+
+interface FormEditProps {
+  type: "edit";
+  data: PlanDataAPI;
+}
+
+type FormProps = FormCreateProps | FormEditProps;
+
+export default function Form(props: FormProps) {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<PlanData>({
-    resolver: zodResolver(PlanSchema),
+  } = useForm<PlanData | PlanDataAPI>({
+    resolver: zodResolver(props.type === "create" ? PlanSchema : PlanAPISchema),
   });
 
-  const onSubmit = async (data: PlanData) => {
-    console.log("SUCCESS", data);
+  const onSubmit = async (data: PlanData | PlanDataAPI) => {
+    if (props.type === "create") {
+      await api({ action: "create", data });
+    }
+
+    if (props.type === "edit") {
+      props.data = { id: props.data.id, ...data };
+      await api({ action: "update", data: props.data });
+    }
   };
 
   return (
-    <form
-      id="new-plan-form"
-      onSubmit={handleSubmit(onSubmit)}
-      className="w-full px-4 sm:px-8"
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className="w-full px-4 sm:px-8">
       <div className="flex w-full flex-col">
         <h2
           className={classNames(
             "mb-4 text-center text-3xl font-bold capitalize",
-            radioCanada.className,
+            caveat.className,
           )}
         >
           Plan Your Holiday!
         </h2>
+        <p className="text-center text-neutral-500">
+          Fill out the fields below to save your holiday plans!
+        </p>
         <FormFieldInput
           label="Title"
           type="text"
