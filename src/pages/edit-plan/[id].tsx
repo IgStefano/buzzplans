@@ -3,7 +3,7 @@ import { PlanDataAPI } from "@/components/form/types/plans";
 import { api } from "@/services/api";
 import { GetServerSideProps } from "next";
 
-export default function NewPlan({ plan }: { plan: PlanDataAPI }) {
+export default function EditPlan({ plan }: { plan: PlanDataAPI }) {
   return (
     <>
       <Form type="edit" data={plan} />

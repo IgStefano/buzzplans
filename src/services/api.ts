@@ -38,7 +38,7 @@ export function api(props: apiProps) {
     case "get":
       return fetch(`${BASE_URL}/get-plans/`);
     case "fetch":
-      return fetch(`${BASE_URL}/get-plans/${props.id}`);
+      return fetch(`${BASE_URL}/fetch-plan/${props.id}`);
     case "create":
       return fetch(`${BASE_URL}/create-new-plan/`, {
         method: "POST",

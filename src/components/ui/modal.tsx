@@ -28,11 +28,11 @@ export default function Modal({
       <div
         ref={modalRef}
         role="dialog"
-        className="relative flex max-h-[85vh] w-[80vw] flex-col items-center justify-center gap-4 rounded-lg bg-neutral-50 p-6 sm:w-[60vw] md:w-[40vw]"
+        className="relative flex max-h-[85vh] w-[80vw] flex-col items-center justify-center gap-4 rounded-lg bg-neutral-50 p-6 sm:w-[60vw] md:w-[40vw] lg:w-[20vw]"
       >
         <h3
           className={classNames(
-            "text-md mx-2 w-full text-center uppercase text-neutral-500 md:text-lg",
+            "text-md mx-2 w-full text-center text-neutral-500 md:text-lg",
           )}
         >
           {label}
@@ -44,7 +44,7 @@ export default function Modal({
               setIsModalOpen(false);
               router.replace("/");
             }}
-            className="rounded-full bg-red-700 p-2 text-neutral-50 outline outline-2 outline-red-50 transition-all duration-300 hover:opacity-80 hover:outline-red-700 focus:opacity-80 focus:outline-red-700"
+            className="rounded-full bg-red-700 px-4 py-2 text-neutral-50 outline outline-2 outline-red-50 transition-all duration-300 hover:opacity-80 hover:outline-red-700 focus:opacity-80 focus:outline-red-700"
           >
             Confirm
           </button>
@@ -53,7 +53,7 @@ export default function Modal({
               setIsModalOpen(false);
               router.replace("/");
             }}
-            className="rounded-full bg-neutral-700 p-2 text-neutral-50 outline outline-2 outline-neutral-50 transition-all duration-300 hover:opacity-80 hover:outline-neutral-700 focus:opacity-80 focus:outline-neutral-700"
+            className="rounded-full bg-neutral-700 px-4 py-2 text-neutral-50 outline outline-2 outline-neutral-50 transition-all duration-300 hover:opacity-80 hover:outline-neutral-700 focus:opacity-80 focus:outline-neutral-700"
           >
             Cancel
           </button>

@@ -20,6 +20,7 @@ export type FormFieldProps = {
   error: FieldError | undefined;
   valueAsDate?: boolean;
   label: string;
+  defaultValue?: string;
   required?: boolean;
 };
 

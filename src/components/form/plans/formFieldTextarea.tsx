@@ -9,12 +9,14 @@ export default function FormFieldTextarea({
   error,
   label,
   required,
+  defaultValue = "",
 }: Omit<FormFieldProps, "type">) {
   return (
     <div className="mb-4">
       <Label text={label} required={required} htmlFor={name} />
       <textarea
         placeholder={placeholder}
+        defaultValue={defaultValue}
         className="h-32 w-full resize-none rounded border border-neutral-50 p-2 text-xs outline-none outline-0 transition-all duration-300 focus-visible:border-solid focus-visible:border-emerald-500  disabled:bg-neutral-200 disabled:text-neutral-900 disabled:opacity-80"
         {...register(name)}
       />
