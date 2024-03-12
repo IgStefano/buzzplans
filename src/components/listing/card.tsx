@@ -25,10 +25,17 @@ export default function Card({
       >
         {title}
       </h2>
-      <p className="line-clamp-2 text-ellipsis">{description}</p>
+      <p title={description} className="line-clamp-2 text-ellipsis">
+        {description}
+      </p>
       <p>Start: {new Date(startDate).toLocaleDateString("en-US")}</p>
       <p>End: {new Date(endDate).toLocaleDateString("en-US")}</p>
       <p>Where: {location}</p>
+      {participants && (
+        <p className="line-clamp-1" title={participants}>
+          Who&apos;s going: {participants}
+        </p>
+      )}
       <div className="flex items-center justify-between">
         <Button variant="pdf" />
         <Link href={`/edit-plan/${id}/`}>
