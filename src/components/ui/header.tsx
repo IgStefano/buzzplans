@@ -13,7 +13,7 @@ export default function Header() {
       )}
     >
       {router.pathname !== "/" ? (
-        <Link href="/" title="Return to">
+        <Link href="/" title="Return to Plans">
           <h1>Buzzplans</h1>
         </Link>
       ) : (

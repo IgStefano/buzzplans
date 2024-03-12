@@ -62,7 +62,9 @@ export default function Form(props: FormProps) {
             caveat.className,
           )}
         >
-          Plan Your Holiday!
+          {props.type === "create"
+            ? "Plan Your Holiday!"
+            : "Update Your Plans!"}
         </h2>
         <p className="text-center text-neutral-500">
           Fill out the fields below to save your holiday plans!

@@ -37,7 +37,9 @@ export default function Card({
         </p>
       )}
       <div className="flex items-center justify-between">
-        <Button variant="pdf" />
+        <Link href={`/print/${id}/`}>
+          <Button variant="pdf" />
+        </Link>
         <Link href={`/edit-plan/${id}/`}>
           <Button variant="edit" />
         </Link>
