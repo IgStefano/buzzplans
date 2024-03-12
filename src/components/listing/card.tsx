@@ -3,6 +3,16 @@ import { PlanDataAPI } from "../form/types/plans";
 import Button from "./button";
 import { useRouter } from "next/router";
 
+/**
+ * Card component used in the listing. It is responsible for displaying all information about a single Plan, as well as supplying action buttons for editing, deleting and creating a PDF version of it.
+ * @param id - UUID relating to this specific Plan.
+ * @param title - The title of this plan.
+ * @param description - Complete description of the holiday Plan. Has up to 2000 characters.
+ * @param startDate - The Date when the Plan is scheduled to start.
+ * @param endDate - The Date when the Plan is scheduled to end.
+ * @param location - The name of the place related to the Plan.
+ * @param participants - Optional. The names of the participants involved in this Plan.
+ */
 export default function Card({
   id,
   title,
@@ -10,7 +20,7 @@ export default function Card({
   startDate,
   endDate,
   location,
-  participants,
+  participants = undefined,
 }: PlanDataAPI) {
   const router = useRouter();
   const attemptDeletion = () => {

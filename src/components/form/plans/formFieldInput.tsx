@@ -2,6 +2,17 @@ import { FormFieldProps } from "../types/plans";
 import ErrorMessage from "./errorMessage";
 import Label from "./label";
 
+/**
+ * Reusable component for creating inputs for forms. This component was created based on React Hook Form primitives.
+ * @param type - The type of the input; text, date, number, etc.
+ * @param placeholder - The message to be displayed as a placeholder when the input is empty.
+ * @param name - The name of this input.
+ * @param register - The React Hook Form function corresponding to this form.
+ * @param valueAsDate - Whether or not this input is for a Date.
+ * @param label - The label to be appended above the input.
+ * @param defaultValue - Value to be first loaded; used for updating forms.
+ * @param required - Whether or not this is a required field in the form.
+ */
 export default function FormFieldInput({
   type,
   placeholder,

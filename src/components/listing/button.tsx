@@ -4,6 +4,10 @@ interface ButtonProps extends ComponentProps<"button"> {
   variant: "pdf" | "edit" | "delete";
 }
 
+/**
+ * Component for the buttons used in the Card component.
+ * @param variant - The variant of the button to be used. Decides which markup is rendered.
+ */
 export default function Button({ variant, ...rest }: ButtonProps) {
   switch (variant) {
     case "pdf":

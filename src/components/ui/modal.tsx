@@ -1,8 +1,15 @@
 import useOutsideClickRef from "@/hooks/useOutsideClickRef";
 import classNames from "classnames";
 import { useRouter } from "next/router";
-import { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 
+/**
+ * Confirmation Modal component. Currently only used in deletions, but could be extended.
+ * @param isModalOpen - Boolean state. Defines if the Modal is visible or not.
+ * @param setIsModalOpen - State setter for the Modal boolean.
+ * @param label - Text to be shown to the user when this Modal is opened.
+ * @param action - Which action will be taken if user confirms it.
+ */
 export default function Modal({
   isModalOpen,
   setIsModalOpen,

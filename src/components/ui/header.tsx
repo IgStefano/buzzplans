@@ -3,6 +3,9 @@ import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+/**
+ * Real simple Header for the whole app. It displays the name of the site and provides a link for the listing whenever the user isn't located there for navigation.
+ */
 export default function Header() {
   const router = useRouter();
   return (
