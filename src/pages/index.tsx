@@ -29,7 +29,7 @@ export default function Home({ plans }: { plans: PlanDataAPI[] }) {
       <div className="flex w-full items-center justify-between">
         <p>Here are your planned holidays!</p>
         <Link href="/new-plan">
-          <button className="flex items-center justify-center rounded-full bg-emerald-500 p-2 text-neutral-50 outline outline-2 outline-emerald-50 transition-all duration-300 hover:opacity-80 hover:outline-emerald-500 focus:opacity-80 focus:outline-emerald-500">
+          <button className="flex items-center justify-center rounded-full bg-emerald-500 px-4 py-2 text-neutral-50 outline outline-2 outline-emerald-50 transition-all duration-300 hover:opacity-80 hover:outline-emerald-500 focus:opacity-80 focus:outline-emerald-500">
             Plan a New Holiday
           </button>
         </Link>
