@@ -1,6 +1,6 @@
 import { PlanData, PlanDataAPI } from "@/components/form/types/plans";
 
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 type getAction = {
   action: "get";
