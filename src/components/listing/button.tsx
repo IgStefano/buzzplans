@@ -1,7 +1,7 @@
 import { ComponentProps } from "react";
 
 interface ButtonProps extends ComponentProps<"button"> {
-  variant: "pdf" | "edit" | "delete";
+  variant: "pdf" | "update" | "delete";
 }
 
 /**
@@ -14,7 +14,7 @@ export default function Button({ variant, ...rest }: ButtonProps) {
       return (
         <button
           className="rounded-full bg-red-300 p-2 text-neutral-50 outline outline-2 outline-red-50 transition-all duration-300 hover:opacity-80 hover:outline-red-300 focus:opacity-80 focus:outline-red-300"
-          title="Generate PDF for this plan"
+          title="Print this Plan"
           {...rest}
         >
           <svg
@@ -30,11 +30,11 @@ export default function Button({ variant, ...rest }: ButtonProps) {
           </svg>
         </button>
       );
-    case "edit":
+    case "update":
       return (
         <button
           className="flex items-center justify-center rounded-full bg-emerald-500 p-2 text-neutral-50 outline outline-2 outline-emerald-50 transition-all duration-300 hover:opacity-80 hover:outline-emerald-500 focus:opacity-80 focus:outline-emerald-500"
-          title="Edit this plan"
+          title="Update this Plan"
           {...rest}
         >
           <svg
@@ -54,7 +54,7 @@ export default function Button({ variant, ...rest }: ButtonProps) {
       return (
         <button
           className="absolute right-4 top-4 rounded-full bg-red-700 p-1 text-neutral-50 outline outline-2 outline-red-50 transition-all duration-300 hover:opacity-80 hover:outline-red-700 focus:opacity-80 focus:outline-red-700"
-          title="Delete this plan"
+          title="Delete this Plan"
           {...rest}
         >
           <svg

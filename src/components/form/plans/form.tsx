@@ -54,7 +54,11 @@ export default function Form(props: FormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="w-full px-4 sm:px-8">
+    <form
+      id={props.type === "create" ? "create-plan" : "edit-plan"}
+      onSubmit={handleSubmit(onSubmit)}
+      className="w-full px-4 sm:px-8"
+    >
       <div className="flex w-full flex-col">
         <h2
           className={classNames(

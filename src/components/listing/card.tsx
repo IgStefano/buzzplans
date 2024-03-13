@@ -51,7 +51,7 @@ export default function Card({
           <Button variant="pdf" />
         </Link>
         <Link href={`/edit-plan/${id}/`}>
-          <Button variant="edit" />
+          <Button variant="update" />
         </Link>
       </div>
       <Button onClick={attemptDeletion} variant="delete" />
