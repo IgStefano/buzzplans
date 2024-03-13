@@ -14,11 +14,11 @@ Buzzplans is a small app for people who want to keep track of their plans. It ha
 
 ## How to Run It 🌐
 
-After cloning the repository, please run `npm install && npm run build && npm run start`. It should open up the project on `http:localhost:3000`.
+After cloning the repository, please run `npm install && npm run build && npm run start`. It should open up the project on `http://localhost:3000`.
 
 ## Testing 🧪
 
-Buzzplans has tests written for it using Cypress. To run them, please use `npm run test:e2e`.
+Buzzplans has tests written for it using Cypress. To run them, please use `npm run test:e2e` with the project open on `http://localhost:3000`.
 
 ## Miscellaneous 🗂️
 
