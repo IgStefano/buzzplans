@@ -23,4 +23,3 @@ Buzzplans has tests written for it using Cypress. To run them, please use `npm r
 ## Miscellaneous 🗂️
 
 A video demo for this project can be found [here](https://www.loom.com/share/e5d83ac976054c708b1f88117d16b768).
-It is also deployed [here](https://buzzplans.vercel.app/).
