@@ -1,40 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Summary 📑
 
-## Getting Started
+Buzzplans is a small app for people who want to keep track of their plans. It has the following features:
 
-First, run the development server:
+- Creation, listing, updating and deletion of holiday plans
+- Generation of PDFs for each of their plans
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech Stack 🛠️
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Front-end:** React on Next.js 14. Tailwind is used as a styling solution
+- **Back-end:** Next.js API Routes were used to handle CRUD operations.
+- **Database:** No database was used in this project. However, this project persists data using the `plans.json` file contained in root.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## How to Run It 🌐
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+After cloning the repository, please run `npm install && npm run build && npm run start`. It should open up the project on `http:localhost:3000`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Testing 🧪
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Buzzplans has tests written for it using Cypress. To run them, please use `npm run test:e2e`.
 
-## Learn More
+## Miscellaneous 🗂️
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+A video demo for this project can be found [here](https://www.loom.com/share/e5d83ac976054c708b1f88117d16b768).
+It is also deployed [here](https://buzzplans.vercel.app/).
