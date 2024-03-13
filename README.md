@@ -10,6 +10,7 @@ Buzzplans is a small app for people who want to keep track of their plans. It ha
 - **Front-end:** React on Next.js 14. Tailwind is used as a styling solution
 - **Back-end:** Next.js API Routes were used to handle CRUD operations.
 - **Database:** No database was used in this project. However, this project persists data using the `plans.json` file contained in root.
+- **Utilities:** React Hook Form along with Zod were used for form control and validation.
 
 ## How to Run It 🌐
 
