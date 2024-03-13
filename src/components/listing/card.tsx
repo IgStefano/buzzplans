@@ -46,7 +46,7 @@ export default function Card({
           Who&apos;s going: {participants}
         </p>
       )}
-      <div className="flex items-center justify-between">
+      <div className="mt-auto flex items-center justify-between">
         <Link href={`/print/${id}/`}>
           <Button variant="pdf" />
         </Link>

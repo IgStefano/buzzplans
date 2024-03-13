@@ -26,7 +26,7 @@ export default function Home({ plans }: { plans: PlanDataAPI[] }) {
 
   return (
     <>
-      <div className="flex w-full items-center justify-between">
+      <div className="flex w-full flex-col items-center justify-between gap-2 sm:flex-row">
         <p>Here are your planned holidays!</p>
         <Link href="/new-plan">
           <button
